@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- daisyui --><!-- Tailwind css -->
+      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- css -->
+     <link rel="stylesheet" href="./login.css">
+    <!-- font  -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+   <header class="flex-none sm:flex justify-between items-center mb-10  bg-amber-100 shadow-md">
+        <div class="flex m-3.5 gap-3">
+             <img class="w-16" src="./assets/github-logo.png" alt="github-logo"> 
+             <h2 class="font-bold text-3xl text-center p-3">GitHub Issues Tracker</h2>
+        </div>
+        <div class="flex gap-2 mr-2 text-2xl">
+            <input  id="" type="text" placeholder="Type here" class="input" />
+            <button id="" class="btn btn-soft btn-accent"> + New Issue</button>
+        </div>  
+       
+    </header>
+
+    <section class="w-[90%] m-auto shadow-md  ">
+        <section class=" bg-primary-content shadow-md p-5"  >
+             <button onclick="loadAll()" id="loadAll" class="btn btn-soft btn-accent border">All</button>
+             <button onclick="loadOpen" id="loadOpen" class="btn btn-soft btn-accent border">Open</button>
+             <button onclick="loadClosed" id="loadClosed" class="btn btn-soft btn-accent border">Closed</button>
+        </section>
+        <section class="flex justify-between items-center p-5 bg-primary-content/40">
+             
+             <div class="flex items-center">
+                  <img class="w-16 h-16"  src="./assets/Aperture.png" alt="">
+                  <div>
+                     <h2 class="text-3xl"><samp id="box-counter"></samp>Issues</h2>
+                     <p class="text-2xl">Track and manage your project issues</p>
+                 </div>
+             </div>
+             <div class="flex gap-2 mr-5">
+                 <div class="bg-green-500 rounded-full border h-5 w-5" > </div>
+                 <p>Open</p>
+                 <div class="bg-purple-500 rounded-full border h-5 w-5"></div>
+                 <p>Closed</p>
+             </div>
+          </section>
+      
+          <div  id="issues-container" class="bg-primary-content/20">
+    
+          </div>
+    </section>    
+    
+    <script>
+        const loadAll = () => {
+            const url = "https://openapi.programming-hero.com/api/levels/all";
+            fetch = url
+            .then((res) => res.json())
+            .then((json) => displayAll(json.data));
+        };
+
+        const displayAll = (all) => {
+           
+        };
+
+
+        // loadAll();
+
+    </script>
+</body>
+</html>
