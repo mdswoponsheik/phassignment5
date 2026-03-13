@@ -20,6 +20,7 @@
         background-color:green ;
         color: white;
     }
+   
 </style>
 </head>
 <body>
@@ -37,16 +38,16 @@
 
     <section class="w-[90%] m-auto shadow-md  ">
         <section class=" bg-primary-content shadow-md p-5"  >
-             <button onclick="loadAll()" id="loadAll" class="btn btn-soft btn-accent border">All</button>
-             <button onclick="loadOpen()" id="loadOpen" class="btn btn-soft btn-accent border">Open</button>
-             <button onclick="loadClosed()" id="loadClosed" class="btn btn-soft btn-accent border">Closed</button>
+             <button onclick="loadAll()" id="loadAll" class="remove btn btn-soft btn-accent border">All</button>
+             <button onclick="loadOpen()" id="loadOpen" class="remove btn btn-soft btn-accent border">Open</button>
+             <button onclick="loadClosed()" id="loadClosed" class="remove btn btn-soft btn-accent border">Closed</button>
         </section>
         <section class="flex justify-between items-center p-5 bg-primary-content/40">
              
              <div class="flex items-center">
-                  <img class="w-16 h-16"  src="./assets/Aperture.png" alt="">
-                  <div>
-                     <h2 class="text-3xl"><samp id="box-counter"></samp>Issues</h2>
+                  <img class="w-16 h-16 mr-2"  src="./assets/Aperture.png" alt="">
+                  <div class="">
+                     <h2 class="text-3xl "><samp class="text-4xl text-yellow-500" id="box-counter"></samp>Issues</h2>
                      <p class="text-2xl">Track and manage your project issues</p>
                  </div>
              </div>
@@ -59,7 +60,7 @@
           </section>
 
 
-          
+
       
           <div  id="issues-container" class="bg-primary-content/20  gap-3 p-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 ">
              <div class="rounded-2xl shadow-2xl">
@@ -137,7 +138,21 @@
                    </div>
               </div>
           </div>
-    </section>    
+    </section>  
+    
+    
+<!-- // <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div class="  space-y-3" id="detail-container"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn btn text-white bg-blue-700 ">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
     
    <script src="./dashboard.js"></script>
 </body>
