@@ -13,6 +13,14 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+
+<style>
+    .active{
+        background-color:green ;
+        color: white;
+    }
+</style>
 </head>
 <body>
    <header class="flex-none sm:flex justify-between items-center mb-10  bg-amber-100 shadow-md">
@@ -21,7 +29,7 @@
              <h2 class="font-bold text-3xl text-center p-3">GitHub Issues Tracker</h2>
         </div>
         <div class="flex gap-2 mr-2 text-2xl">
-            <input  id="" type="text" placeholder="Type here" class="input" />
+            <input  id="" type="text" placeholder="Search issuse" class="input" />
             <button id="" class="btn btn-soft btn-accent"> + New Issue</button>
         </div>  
        
@@ -49,8 +57,11 @@
                  <p>Closed</p>
              </div>
           </section>
+
+
+          
       
-          <div  id="issues-container" class="bg-primary-content/20  gap-3 p-5 grid grid-cols-1 sm:grid-cols-2 xl::grid-cols-3 ">
+          <div  id="issues-container" class="bg-primary-content/20  gap-3 p-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 ">
              <div class="rounded-2xl shadow-2xl">
                 <div class="flex justify-between m-5">
                     <img class="w-10" src="./assets/Open-Status.png" alt="">
