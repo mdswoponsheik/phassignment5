@@ -129,7 +129,7 @@
 
                      const allDiv =document.createElement("div");
                 allDiv.innerHTML= `
-               <div class="rounded-2xl shadow-2xl p-3  border-t-8 border-t-${color} ">
+               <div onclick="loadMolad(${all.id})"  class="rounded-2xl shadow-2xl p-3  border-t-8 border-t-${color} ">
                 <div class="flex justify-between m-5">
                     <img class="w-10" src="./assets/Open-Status.png"   alt="">
                 <button class="btn  text-red-500  rounded-3xl bg-${priorityColor} "> ${all.priority} </button>
@@ -199,7 +199,7 @@
                 
                 const openDiv =document.createElement("div")
                 openDiv.innerHTML= `
-                <div class="rounded-2xl shadow-xl border-t-8 border-t-green-500 p-3 h-100">
+                <div onclick="loadMolad(${open.id})" class="rounded-2xl shadow-xl border-t-8 border-t-green-500 p-3 ">
                 <div class="flex justify-between m-5">
                     <img class="w-10" src="./assets/Open-Status.png" alt="">
                 <button class="btn  text-red-500 bg-[#FECACA50] rounded-3xl "> ${open.priority} </button>
@@ -207,7 +207,7 @@
                 </div>
                 <div class="mx-5">
                       <div class="">
-                    <h2 onclick="loadMolad(${open.id})" class="text-4xl font-bold my-auto mb-3"> ${open.title} </h2>
+                    <h2  class="text-4xl font-bold my-auto mb-3"> ${open.title} </h2>
                     <p> ${open.description} </p>
                 </div>
                 <div class="flex gap-3 m-5">
@@ -264,7 +264,7 @@
                 
                 const closedDiv =document.createElement("div")
                 closedDiv.innerHTML= `
-                <div class="rounded-2xl shadow-xl border-t-8 border-t-purple-500 p-3 h-100">
+                <div onclick="loadMolad(${closed.id})" class="rounded-2xl shadow-xl border-t-8 border-t-purple-500 p-3 " >
                 <div class="flex justify-between m-5">
                     <img class="w-10" src="./assets/Open-Status.png" alt="">
                 <button class="btn  text-red-500 bg-[#FECACA50] rounded-3xl "> ${closed.priority} </button>
@@ -272,7 +272,7 @@
                 </div>
                 <div class="mx-5">
                       <div class="">
-                    <h2 onclick="loadMolad(${closed.id})" class="text-4xl font-bold my-auto mb-3"> ${closed.title} </h2>
+                    <h2 class="text-4xl font-bold my-auto mb-3"> ${closed.title} </h2>
                     <p> ${closed.description} </p>
                 </div>
                 <div class="flex gap-3 m-5">

@@ -85,10 +85,26 @@
 
 - Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
     - 1️⃣ What is the difference between var, let, and const?
+      ANS: 1.var is function scoped and can be redeclared ,,, let and const are block scoped  and cann't be redeclard
+           2.const cann't be reassigned ,,, var or let can be reassigned
+
+
     - 2️⃣ What is the spread operator (...)?
+      ANS:The spread operator expands elements of an array or object into another array or object
+
+
     - 3️⃣ What is the difference between map(), filter(), and forEach()?
+      ANS: map creates a new array by transforming elements.
+           filter creates a new array based on a condition 
+           forEach just loops through elements without returning a new array.
+
+
     - 4️⃣ What is an arrow function?
+      ANS:an arrow function is a shorter syntax for writing functions in js.
+
+
     - 5️⃣ What are template literals?
+      ANS:Template literals allow embedding variables and expressions inside strings using backticks (`) and ${}.
 
 
 ---
