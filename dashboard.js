@@ -1,7 +1,18 @@
  
  const labelsElement = (arr) => {
-    const mapping = arr.map((lab) => `<button class="btn text-xl text-[#D97706] bg-[#FDE68A50] border-[#D9770670] rounded-4xl ">${lab}</button>`);
+   const labelsColor = arr.map((data) => {
+    if(data === "bug") return "bg-red-100 text-red-500";
+    if(data === "help wanted") return "bg-blue-100 text-blue-500";
+    if(data === "good first issue") return "bg-yellow-100 text-yellow-500";
+    if(data === "documentation") return "bg-purple-100 text-purple-500";
+    if(data === "enhancement") return "bg-green-100 text-green-500";
+   });
+   console.log(labelsColor);
+         
+    const mapping = arr.map((lab) => `<button class="btn text-xl   ${labelsColor} rounded-4xl ">${lab}</button>`);console.log(mapping);
     return mapping.join(" ");
+
+
  };
   
 
@@ -91,10 +102,13 @@
                 const clickbtn = document.getElementById("loadAll")
                 remover();
                 clickbtn.classList.add("active");
+                
                 document.getElementById("box-counter").innerText = json.data.length;
                 displayAll(json.data)
             });
         };
+
+
 
         const displayAll = (alls) => {
            const issuesContainer =document.getElementById("issues-container")
@@ -102,8 +116,11 @@
 
            for(let all of alls){
                 const allDiv =document.createElement("div")
+                let color = all.status ===  "open" ?
+                "green-500" : "purple-500";
+                
                 allDiv.innerHTML= `
-               <div class="rounded-2xl shadow-2xl p-3 h-100">
+               <div class="rounded-2xl shadow-2xl p-3 h-100 border-t-8 border-t-${color} ">
                 <div class="flex justify-between m-5">
                     <img class="w-10" src="./assets/Open-Status.png" alt="">
                 <button class="btn  text-red-500 bg-[#FECACA50] rounded-3xl "> ${all.priority} </button>
@@ -173,7 +190,7 @@
                 
                 const openDiv =document.createElement("div")
                 openDiv.innerHTML= `
-                <div class="rounded-2xl shadow-xl  p-3 h-100">
+                <div class="rounded-2xl shadow-xl border-t-8 border-t-green-500 p-3 h-100">
                 <div class="flex justify-between m-5">
                     <img class="w-10" src="./assets/Open-Status.png" alt="">
                 <button class="btn  text-red-500 bg-[#FECACA50] rounded-3xl "> ${open.priority} </button>
@@ -238,7 +255,7 @@
                 
                 const closedDiv =document.createElement("div")
                 closedDiv.innerHTML= `
-                <div class="rounded-2xl shadow-xl  p-3 h-100">
+                <div class="rounded-2xl shadow-xl border-t-8 border-t-purple-500 p-3 h-100">
                 <div class="flex justify-between m-5">
                     <img class="w-10" src="./assets/Open-Status.png" alt="">
                 <button class="btn  text-red-500 bg-[#FECACA50] rounded-3xl "> ${closed.priority} </button>
@@ -287,9 +304,12 @@
             filterSearchs =allSearchs.filter((search) => search.title.toLowerCase()
         .includes(input)
             );
+
+            // document.getElementById("box-counter").innerText = json.data.length;
             displayAll(filterSearchs);
             displayOpen(filterSearchs);
             displayClosed(filterSearchs);
+            document.getElementById("box-counter").innerText = filterSearchs.length;
          });
        });
 
