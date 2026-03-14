@@ -58,8 +58,8 @@
                 <div class="flex items-center space-x-8 text-xl">
                     
                     <button class="btn text-white bg-green-600 rounded-4xl">${word.status}</button>
-                    <li>opened</li>
-                    <li>21/2/200</li>
+                    <li>${word.status}ed</li>
+                    <li>11/03/2026</li>
                 </div>
                 <div class="">
                     <div class="flex gap-3 m-5">
@@ -78,9 +78,13 @@
                     </div>
                     <div class="w-1/2">
                         <h3>priority:</h3>
-                        <button class="btn text-xl   text-white bg-red-500 rounded-4xl ">${word.priority}</button>
+                        <button class="btn text-xl   text-white bg-red-400 rounded-4xl ">${word.priority}</button>
                     </div>
-                 
+                </div>
+                <div class="flex ">    
+                    <div class="w-1/2">CreatedAt :<br>${word.createdAt}</div>
+                    <div class="w-1/2">UpdatedAt :<br>${word.updatedAt}</div>
+                 </div>
     `
 
     document.getElementById("my_modal_5").showModal();
@@ -115,15 +119,20 @@
            issuesContainer.innerHTML ="";
 
            for(let all of alls){
-                const allDiv =document.createElement("div")
+                
                 let color = all.status ===  "open" ?
                 "green-500" : "purple-500";
+           
                 
+                let priorityColor = all.priority ===  "high" ?
+                "red-200" : "purple-200";
+
+                     const allDiv =document.createElement("div");
                 allDiv.innerHTML= `
-               <div class="rounded-2xl shadow-2xl p-3 h-100 border-t-8 border-t-${color} ">
+               <div class="rounded-2xl shadow-2xl p-3  border-t-8 border-t-${color} ">
                 <div class="flex justify-between m-5">
-                    <img class="w-10" src="./assets/Open-Status.png" alt="">
-                <button class="btn  text-red-500 bg-[#FECACA50] rounded-3xl "> ${all.priority} </button>
+                    <img class="w-10" src="./assets/Open-Status.png"   alt="">
+                <button class="btn  text-red-500  rounded-3xl bg-${priorityColor} "> ${all.priority} </button>
                 <!-- <button class="btn  text-[#9CA3AF] bg-[#EEEFF250] rounded-4xl ">low</button> -->
                 </div>
                 <div class="mx-5">
@@ -159,7 +168,7 @@
            };
          manageLoading(false);
         };
-        // loadAll();
+        loadAll();
 
 
 
