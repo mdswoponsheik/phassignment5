@@ -3,12 +3,34 @@
     const mapping = arr.map((lab) => `<button class="btn text-xl text-[#D97706] bg-[#FDE68A50] border-[#D9770670] rounded-4xl ">${lab}</button>`);
     return mapping.join(" ");
  };
- 
+  
+
+//  remove color of non selected button 
+
  const remover = () => {
     const removerBtn = document.querySelectorAll(".remove")
     removerBtn.forEach((btn) => btn.classList.remove("active"));
  }
 
+
+//  loading spinner 
+  const manageLoading = (states) => {
+    if(states == true){
+        document.getElementById("losding").classList.remove("hidden");
+        document.getElementById("issues-container").classList.add("hidden");
+    }
+    else{
+         document.getElementById("issues-container").classList.remove("hidden");
+        document.getElementById("losding").classList.add("hidden");
+    }
+  }
+
+
+
+
+
+
+    // modal 
 
  const loadMolad = async (id) => {
     const url = ` https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
@@ -16,7 +38,6 @@
     const detail = await res.json();
     displayModal(detail.data);
  }
-
   displayModal = (word) =>{
     console.log(word);
     const boxModal =document.getElementById("detail-container");
@@ -51,25 +72,19 @@
                  
     `
 
-//     "title": "Add bulk operations support",
-// "description": "Allow users to perform bulk actions like delete, update status on multiple items at once.",
-// "status": "open",
-// "labels": [
-// "enhancement"
-// ],
-// "priority": "low",
-// "author": "bulk_barry",
-// "assignee": "",
+    document.getElementById("my_modal_5").showModal();
+  }
+
+
+
 // "createdAt": "2024-02-02T10:00:00Z",
 // "updatedAt": "2024-02-02T10:00:00Z"
 
-    document.getElementById("my_modal_5").showModal();
-  }
  
- 
+    // All button 
  
  const loadAll = () => {
-           
+           manageLoading(true);
             fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
             .then((res) => res.json())
             .then((json) => {
@@ -84,11 +99,6 @@
         const displayAll = (alls) => {
            const issuesContainer =document.getElementById("issues-container")
            issuesContainer.innerHTML ="";
-
-            // const box = document.getElementById("box-counter")
-            // const boxP =document.createElement("p")
-
-            // alls.length = box.innerText
 
            for(let all of alls){
                 const allDiv =document.createElement("div")
@@ -129,8 +139,12 @@
                 `;
 
                 issuesContainer.appendChild(allDiv);
-           }
+           };
+         manageLoading(false);
         };
+        // loadAll();
+
+
 
 
 
@@ -138,7 +152,7 @@
         // OPEN  
 
         const loadOpen = () => {
-           
+           manageLoading(true);
             fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
             .then((res) => res.json())
             .then((data) => {
@@ -192,17 +206,18 @@
                 `;
 
                 issuesContainer.appendChild(openDiv);
-           }
+           };
+         manageLoading(false);
         };
+
+
 
 
 
         // Closed 
 
-
-
         const loadClosed = () => {
-           
+           manageLoading(true);
             fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
             .then((res) => res.json())
             .then((data) => {
@@ -256,9 +271,25 @@
                 `;
 
                 issuesContainer.appendChild(closedDiv);
-           }
+           };
+           manageLoading(false);
         };
+
+        
+       document.getElementById("search-btn").addEventListener("click", ()=>{
+        const input =document.getElementById("search-input").value.trim().toLowerCase();
         
 
+        fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+        .then((res) => res.json())
+        .then((data) => {
+            const allSearchs = data.data;
+            filterSearchs =allSearchs.filter((search) => search.title.toLowerCase()
+        .includes(input)
+            );
+            displayAll(filterSearchs);
+            displayOpen(filterSearchs);
+            displayClosed(filterSearchs);
+         });
+       });
 
-// loadAll();

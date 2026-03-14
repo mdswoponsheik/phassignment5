@@ -20,6 +20,9 @@
         background-color:green ;
         color: white;
     }
+    /* .hidden{
+        display: none;
+    } */
    
 </style>
 </head>
@@ -30,8 +33,8 @@
              <h2 class="font-bold text-3xl text-center p-3">GitHub Issues Tracker</h2>
         </div>
         <div class="flex gap-2 mr-2 text-2xl">
-            <input  id="" type="text" placeholder="Search issuse" class="input" />
-            <button id="" class="btn btn-soft btn-accent"> + New Issue</button>
+            <input  id="search-input" type="text" placeholder="Search issuse" class="input" />
+            <button id="search-btn" class="btn btn-soft btn-accent"> + New Issue</button>
         </div>  
        
     </header>
@@ -61,87 +64,22 @@
 
 
 
-      
+          <!-- loadin  -->
+                <section id="losding" class="flex justify-center items-center hidden">
+                    <span class="loading loading-spinner text-accent w-50 h-50 "></span>
+                </section>
+
+               
+
           <div  id="issues-container" class="bg-primary-content/20  gap-3 p-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 ">
-             <div class="rounded-2xl shadow-2xl">
-                <div class="flex justify-between m-5">
-                    <img class="w-10" src="./assets/Open-Status.png" alt="">
-                <button class="btn  text-red-500 bg-[#FECACA50] rounded-4xl ">high</button>
-                <!-- <button class="btn  text-[#9CA3AF] bg-[#EEEFF250] rounded-4xl ">low</button> -->
-                </div>
-                <div class="mx-5">
-                      <div class="">
-                    <h2 class="text-4xl font-bold my-auto mb-3">fix lkzhjsdfglkhgzslgkh</h2>
-                    <p>Lorem </p>
-                </div>
-                <div class="flex gap-3 m-5">
-                    <div>
 
-                       <button class="btn text-xl   text-red-500 bg-[#FECACA50] border-red-400 rounded-4xl ">bug</button>
-                    </div>
-                    <div>
-
-                        <button class="btn text-xl text-[#D97706] bg-[#FDE68A50] border-[#D9770670] rounded-4xl ">helpdjhxzdfhjn wafdsf</button>
-                    </div>
-                    <!-- <div>
-
-                        <button class="btn text-[#00A96E] bg-[#BBF7D050] rounded-4xl">help wafdsf</button>
-                    </div> -->
-
-                </div>
-                </div>
-                <hr>
-                <div>
-                    <div class="p-5 space-y-2">
-                    <p>1 by lkdszrhfgazh</p>
-                    <p>231/635/</p>
-                </div>
-                </div>
-             </div>
-
-
-
-              <div class="p-8 rounded-2xl border space-y-3">
-                <h2 class="text-3xl font-bold" >Lorem, . Veritatis, nam.</h2>
-                <div class="flex items-center space-x-8 text-xl">
-                    
-                    <button class="btn text-white bg-green-600 rounded-4xl">help wafdsf</button>
-                    <li>opened</li>
-                    <li>21/2/200</li>
-                </div>
-                <div class="">
-                    <div class="flex gap-3 m-5">
-                    <div>
-                        
-                       <button class="btn text-xl   text-red-500 bg-[#FECACA50] border-red-400 rounded-4xl ">bug</button>
-                    </div>
-                    <div>
-
-                        <button class="btn text-xl text-[#D97706] bg-[#FDE68A50] border-[#D9770670] rounded-4xl ">helpdjhxzdfhjn wafdsf</button>
-                    </div>
-                    
-
-                </div>
-                <p class="text-2xl">Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="flex bg-gray-100 rounded-xl p-3">
-                    <div class="w-1/2">
-                        <h3 class="text-gray-300">assigenee:</h3>
-                        <h3 class="text-gray-400">Farim ahamed</h3>
-                    </div>
-                    <div class="w-1/2">
-                        <h3>priority:</h3>
-                        <button class="btn text-xl   text-white bg-red-500 rounded-4xl ">bug</button>
-                    </div>
-                  </div>
-                       <div class="flex justify-end"><button class="btn text-white bg-blue-700 rounded-xl ">help wafdsf</button>
-                   </div>
-              </div>
-          </div>
+             
+            </div>
     </section>  
     
     
 <!-- // <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
       <div class="modal-box">
         <div class="  space-y-3" id="detail-container"></div>
@@ -153,6 +91,20 @@
         </div>
       </div>
     </dialog>
+
+
+     <div>
+<!-- 
+                       <button class="btn text-xl   text-red-500 bg-[#FECACA50] border-red-400 rounded-4xl ">bug</button>
+                    </div>
+                    <div>
+
+                        <button class="btn text-xl text-[#D97706] bg-[#FDE68A50] border-[#D9770670] rounded-4xl ">helpdjhxzdfhjn wafdsf</button>
+                    </div>
+                    <div>
+
+                        <button class="btn text-[#00A96E] bg-[#BBF7D050] rounded-4xl">help wafdsf</button>
+                    </div> -->
     
    <script src="./dashboard.js"></script>
 </body>
